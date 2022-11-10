@@ -17,11 +17,7 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-  }
+:root{
+  --area-port-height: 310px;
+  --area-port-width: 200px;
 }
