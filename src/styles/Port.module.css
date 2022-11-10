@@ -1,7 +1,10 @@
 .area{
     display:flex;
+    flex-direction:column;
+    align-items: center;
     width: var(--area-port-width);
     height: var(--area-port-height);
+    margin: 5px;
 }
 
 .frame{
@@ -9,6 +12,7 @@
     flex-grow: 1;
     border: 5px solid brown;
     border-bottom: none;
+    width: 90%
 }
 
 .port{
@@ -22,4 +26,10 @@
 
 .number{
     font-size: 3rem;
+}
+
+.floor{
+    height: 10px;
+    width: 100%;
+    background-color: #ddd;
 }
