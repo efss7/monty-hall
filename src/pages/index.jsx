@@ -1,9 +1,9 @@
-import Gift from "../components/Gift";
+import Port from "../components/Port";
 
 export default function Home() {
   return (
     <div>
-      <Gift />
+      <Port />
     </div>
   )
 }
