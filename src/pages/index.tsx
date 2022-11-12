@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div style={{ display: "flex" }}>
-      <Port value={p1} />
+      <Port value={p1} onChange={newPort => setP1(newPort)} />
     </div>
   )
 }
