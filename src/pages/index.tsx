@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div style={{ display: "flex" }}>
-      <Port port={p1} />
+      <Port value={p1} />
     </div>
   )
 }

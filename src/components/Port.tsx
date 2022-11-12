@@ -2,11 +2,11 @@ import styles from '../styles/Port.module.css'
 import PortModel from '../model/Port'
 
 interface PortProps{
-    port: PortModel;
+    value: PortModel;
 }
 
 export default function Port(props:PortProps) {
-    const {port} = props
+    const port = props.value
     const selected = port.selected ? styles.selected: ''
     return (
         <div className={styles.area}>
