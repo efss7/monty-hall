@@ -8,7 +8,7 @@ interface PortProps {
 
 export default function Port(props: PortProps) {
     const port = props.value
-    const selected = port.selected  ? styles.selected : ''
+    const selected = port.selected && !port.opened ? styles.selected : ''
     const toggleSelection = e => props.onChange(port.alternateSelection())
     const open = e => {
         e.stopPropagation()
