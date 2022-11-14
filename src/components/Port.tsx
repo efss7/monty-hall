@@ -1,4 +1,4 @@
-import PortModel from '../model/Port';
+import PortModel from '../model/PortModel';
 import styles from '../styles/Port.module.css';
 
 interface PortProps {
