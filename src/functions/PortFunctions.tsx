@@ -10,3 +10,15 @@ export function createPorts(
         return new PortModel(number, haveAGift)
     })
 }
+
+export function updatePort(ports: PortModel[], portModified: PortModel) {
+    return ports.map(currentPort => {
+        const sameAsModified = currentPort.number === portModified.number
+
+        if (sameAsModified) {
+            return portModified
+        } else {
+            return portModified.opened ? currentPort : currentPort.deselect()
+        }
+    })
+}

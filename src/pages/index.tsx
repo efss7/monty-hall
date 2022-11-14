@@ -1,22 +1,23 @@
 import { useState } from "react";
 import Port from "../components/Port";
-import { createPorts } from "../functions/PortFunctions";
-import PortModel from "../model/PortModel";
+import { createPorts, updatePort } from "../functions/PortFunctions";
 
 export default function Home() {
-  const [p1, setP1] = useState(new PortModel(1));
-  const [p2, setP2] = useState(new PortModel(2));
-  const [p3, setP3] = useState(new PortModel(3));
+  const [ports, setPorts] = useState(createPorts(3, 2))
 
 
-  console.log(createPorts(3, 2))
+  function renderPorts() {
+    return ports.map(port => {
+      return <Port key={port.number} value={port}
+        onChange={newPort => {
+          setPorts(updatePort(ports, newPort))
+        }} />
+    })
+  }
 
   return (
     <div style={{ display: "flex" }}>
-      <Port value={p1} onChange={newPort => setP1(newPort)} />
-      <Port value={p2} onChange={newPort => setP2(newPort)} />
-      <Port value={p3} onChange={newPort => setP3(newPort)} />
-
+      {renderPorts()}
     </div>
   )
 }
