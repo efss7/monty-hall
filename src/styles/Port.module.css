@@ -10,6 +10,7 @@
 
 .frame{
     display: flex;
+    flex-direction: column-reverse;
     flex-grow: 1;
     border: 5px solid brown;
     border-bottom: none;

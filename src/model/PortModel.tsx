@@ -27,6 +27,10 @@ export default class PortModel {
     return this.#opened;
   }
 
+  get closed() {
+    return !this.opened
+  }
+
   deselect() {
     const selected = false;
     return new PortModel(this.number, this.haveAGift, selected, this.opened);

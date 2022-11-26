@@ -1,5 +1,6 @@
 import PortModel from '../model/PortModel';
 import styles from '../styles/Port.module.css';
+import Gift from './Gift'
 
 interface PortProps {
     value: PortModel;
@@ -27,7 +28,10 @@ export default function Port(props: PortProps) {
     return (
         <div className={styles.area} onClick={toggleSelection}>
             <div className={`${styles.frame} ${selected}`}>
-                {port.opened ? false : renderPort()}
+                {port.closed ? 
+                renderPort() :
+                port.haveAGift ? <Gift></Gift> : false
+                }
             </div>
             <div className={styles.floor}></div>
         </div>
