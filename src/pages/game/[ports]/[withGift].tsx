@@ -5,7 +5,7 @@ import Port from "../../../components/Port"
 import { createPorts, updatePort } from "../../../functions/PortFunctions"
 import styles from '../../../styles/Game.module.css'
 
-export default function game() {
+export default function Game() {
     const router = useRouter()
     const [valid, setValid] = useState(false)
     const [ports, setPorts] = useState([])
@@ -17,8 +17,7 @@ export default function game() {
         const qtyPortsValid = ports >= 3 && ports <= 100
         const withGiftValid = withGift >= 1 && withGift <= ports
         setValid(qtyPortsValid && withGiftValid)
-        setPorts(createPorts(ports, withGift))
-    },[ports])
+    }, [ports, router.query.ports, router.query.withGift])
 
     useEffect(() => {
         const ports = +router.query.ports
