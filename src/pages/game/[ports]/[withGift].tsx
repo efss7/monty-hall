@@ -7,16 +7,27 @@ import styles from '../../../styles/Game.module.css'
 
 export default function game() {
     const router = useRouter()
+    const [valid, setValid] = useState(false)
     const [ports, setPorts] = useState([])
+
 
     useEffect(()=>{
         const ports = +router.query.ports
         const withGift = +router.query.withGift
+        const qtyPortsValid = ports >= 3 && ports <= 100
+        const withGiftValid = withGift >= 1 && withGift <= ports
+        setValid(qtyPortsValid && withGiftValid)
         setPorts(createPorts(ports, withGift))
-    },[router?.query])
+    },[ports])
+
+    useEffect(() => {
+        const ports = +router.query.ports
+        const withGift = +router.query.withGift
+        setPorts(createPorts(ports, withGift))
+    }, [router?.query])
 
     function renderPorts() {
-        return ports.map(port => {
+        return valid && ports.map(port => {
             return <Port key={port.number} value={port}
                 onChange={newPort => {
                     setPorts(updatePort(ports, newPort))
@@ -27,7 +38,9 @@ export default function game() {
     return (
         <div id={styles.game}>
             <div className={styles.ports} >
-                {renderPorts()}
+                { valid ?
+                 renderPorts()
+                : <h1> Valores inválidos </h1>}
             </div>
             <div className={styles.buttons}>
                 <Link href="/">
